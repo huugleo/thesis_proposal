@@ -1,0 +1,91 @@
+\documentclass{tudelft-report}
+
+% Packages======================================
+% \usepackage[a4paper, margin=1cm]{geometry}    % State the geometry of the document.
+\usepackage{graphicx}                           % Package for inserting figures.
+\usepackage{parskip}                            % Removes paragraph indentation and adds vertical space between paragraphs. (Useful for reports.)
+\usepackage{tabularx}                           % Allows for enhanced tabular environment.
+\usepackage{longtable}                          % Allows for tables that span multiple pages and look better than normal tables.
+\usepackage{booktabs}                           % Required to make longtable work.
+\usepackage{multirow}                           % Allow to create cells in tables that span mulitple rows.
+\usepackage{multicol}                           % Allow to create cells in tables that span mulitple columns.
+\usepackage{amsmath}                            % Greatly enhances LaTeX's built in math environment.
+\usepackage{bm}                                 % Allows for bold math.
+\usepackage[sorting=none]{biblatex}             % Add bibliography with a sequential sorting order.
+\usepackage{physics}                            % Enchances typesetting of mathematical, physics and engineering expressions.
+\usepackage{enumitem}                           % Enchances list usage.
+\usepackage{siunitx}                            % Enables easy SI unit usage.
+% ==============================================
+
+% Commands =====================================
+\renewcommand{\deg}{\si{\degree}\xspace}        % Use \deg easily, everywhere.
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01}   % Use * easily, everwhere.
+\setlist{itemsep=-2pt}                          % Reducing white space in lists slightly.
+% \renewcommand{\arraystretch}{1.4}               % Increase the white space between items in a longtable.
+\addbibresource{report.bib}
+% ==============================================
+
+%% ----------------------------------------------------------------------
+%%    Begin of document + Frontmatter (Roman page numbering)
+%% ----------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+%% Define the main parameters
+\title{A Title to the Report}
+\subtitle{A Catchy Optional Subtitle \\ that Grabs the Attention}
+\subject{AB1234: Optional Course Name} % Cover only
+\author{Author}
+
+
+\affiliation{Delft University of Technology} % Cover only
+\coverimage{figures/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{4884d6} % Color for cover title
+
+\makecover
+
+\input{frontmatter/title-report}
+\input{frontmatter/preface}
+\input{frontmatter/summary}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+\input{frontmatter/nomenclature}
+
+%% ----------------------------------------------------------------------
+%%    Mainmatter (Arabic page numbering)
+%% ----------------------------------------------------------------------
+
+\mainmatter
+
+\input{mainmatter/introduction}
+
+\input{mainmatter/chapter-2}
+\input{mainmatter/chapter-3}
+%\input{mainmatter/chapter-4} % Create file to add
+
+\input{mainmatter/conclusion}
+
+%% Prevent urls running into margins in bibliography
+\setcounter{biburlnumpenalty}{7000}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{7000}
+
+%% Add bibliography
+\printbibliography[heading=bibintoc,title=References]
+
+%% ----------------------------------------------------------------------
+%%    Appendix (Letters for chapters)
+%% ----------------------------------------------------------------------
+
+\appendix
+
+\input{appendix/appendix-a}
+\input{appendix/appendix-b}
+%\input{appendix/appendix-c} % Create file to add
+
+\end{document}
