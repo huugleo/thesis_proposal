@@ -1,26 +1,25 @@
-\chapter{Introduction}
+\chapter{Introduction and project background}
 \label{chapter:introduction}
 
+PLASMO is an ESA-funded concept study for a constellation of small satellites for plastic monitoring, carried out by an international consortium led by Delft University of Technology. The concept combines a very low Earth orbit (VLEO), a volume-optimised optical instrument performing spectroscopy for the detection of plastic in the oceans, and close integration of subsystems, with the aim of a satellite cheap enough to make a constellation with useful temporal resolution affordable. The VLEO platform, combined with deployable optics, improves the achievable spatial resolution.
+
+Deploying part of the optical payload reduces the stowed volume of each satellite at launch, which allows more satellites to be carried on a given launcher or for a given launch cost. For the aperture of 20 to \qty{30}{\centi\meter} expected for PLASMO, only the secondary mirror and the baffle are currently foreseen as deployable elements \parencite{bouwmeester2026}.
+
+Deployable optics have already been studied and partly prototyped at TU Delft, for a \qty{1.5}{\meter} aperture and for a \qty{30}{\centi\meter} thermal-infrared camera. PLASMO differs from those studies in ground sampling distance, swath width and spectral bands, so their lessons carry over but the requirements, and potentially the solution space, change. The instrument design also runs in parallel with this thesis: the mirror sizes and separations are not yet fixed, and an off-axis configuration remains open alongside the on-axis configuration designed previously. The work therefore has to stay generic enough to remain valid as those inputs settle.
+
+The objective of the thesis is to identify and trade off the options for deployment under these uncertainties, and to advance and analyse the resulting design in terms of packing ratio, deployment accuracy, and the need for active control to compensate thermo-mechanical effects.
+
+\section{Scope}
+\label{sec:scope}
+
+The thesis addresses the passive deployment structure that carries the secondary mirror (M2): the mechanism that holds M2 at its standoff from the primary mirror (M1) after deployment, and the accuracy and stability with which it does so. Two boundaries are treated as fixed for the duration of the work.
 
 \begin{itemize}
-    \item Reason/Relevance: why are your writing this report? (also includes background information)
-    \begin{itemize}
-        \item Opening statement (to spike interest)
-        \item Context, background information (with sources)
-        \item Motive (problem or knowledge gap)
-        \begin{itemize}
-            \item What is the problem in society or science that research could help to solve?
-            \item What has already been researched to find a solution for this problem?
-            \item What do we not know yet, to be able to solve this problem? (Also called the motivation, the missing piece or the ‘scientific gap’.)
-        \end{itemize}
-    \end{itemize}
-    \item Aim: what are you trying to achieve in your report? Also: method and restrictions, how are you going to achieve it and what is not part of your report?
-    \begin{itemize}
-        \item Aim, problem statement or research question in the first sentence of the paragraph. "The aim of [text genre] is to [goal] [audience] about/on [a specific topic]."
-        \item Method including conditions and restrictions.
-    \end{itemize}
-    \item Structure: what can the reader expect in your report? (and how are the chapters connected?)
-    \begin{itemize}
-        \item Overview of the rest of the report.
-    \end{itemize}
+    \item The deployable baffle is treated as a separate element. An integrated baffle and M2 mechanism is not pursued, because the baffle tolerates considerable inaccuracy while the mirror does not, and the two therefore lead to different design philosophies. It is retained only as a possible side observation.
+    \item Active correction is in scope as a budget rather than as a design task. The working assumption is a fine stage with three degrees of freedom, piston plus tip and tilt, with actuators at the bases of the three M2 arms. The thesis sizes what that stage would have to absorb. It does not design the control loop or the metrology chain.
 \end{itemize}
+
+\section{Status at this review}
+\label{sec:status}
+
+The orientation phase began on 18 June 2026. It produced a survey of deployment mechanisms, in which approximately 300 papers were catalogued and screened and 111 were read. Using this review, a classification of the available architectures was created and an assessment of which of those architectures are worth carrying forward, with the reasoning for each.
