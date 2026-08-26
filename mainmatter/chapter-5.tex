@@ -23,18 +23,18 @@ The methodology also follows the sequence that recurs across the predecessor the
 \section{Phase 2, to the green light: analysing the selected design}
 \label{sec:phase2}
 
-\textbf{Activity 2.1, ESATAN thermal cases.} Orbital thermal cases for the \qty{300}{\kilo\meter} VLEO baseline, including eclipse cycling, with the cooled detector carried as a fixed boundary condition. The output is the temperature field and the gradients across the deployed structure over an orbit.
+\textbf{Activity 2.1, ESATAN thermal cases.} Orbital thermal cases for the \SI{300}{\kilo\meter} VLEO baseline, including eclipse cycling, with the cooled detector carried as a fixed boundary condition. The output is the temperature field and the gradients across the deployed structure over an orbit.
 
 \textbf{Activity 2.2, thermoelastic and modal finite-element analysis.} The temperature fields drive a thermoelastic analysis of M2 pose drift, and a modal analysis gives the deployed first eigenfrequency for launch survival and for the reaction-wheel microvibration response. Material and layup choices, including atomic-oxygen exposure at VLEO are considered here.
 
 \textbf{Activity 2.3, the error budget.} A root-sum-square error budget propagates the contributors to M2 pose error: bare deployment repeatability, hinge or latch hysteresis, thermoelastic drift per orbit, manufacturing and alignment tolerances, and microvibration. This budget splits the sub-micron target into a number for each contributor, so every part of the design can be checked.
 
-\textbf{Activity 2.4, the passive-versus-active assessment.} The residual remaining after all passive measures is compared against the three degree-of-freedom correction budget: piston plus tip and tilt at the three arm bases. This comparison answers sub-question 3, and states the stroke and resolution the fine stage would require, sized against published corrector stages \parencite{cadiergues2003,lu2023}.
+\textbf{Activity 2.4, the passive-versus-active assessment.} The residual remaining after all passive measures is compared against the three degree-of-freedom correction budget: piston plus tip and tilt at the three arm bases. This comparison answers sub-question 3, and states the stroke and resolution the fine stage would require, sized against published corrector stages \cite{cadiergues2003,lu2023}.
 
 \section{Two decisions deferred to the midterm}
 \label{sec:deferred}
 
-\textbf{A breadboard model.} Building hardware is proposed as a midterm decision, gated on the trade-off outcome, rather than committed to now. Its purpose would be to validate the CAD design physically and to run physical tests: that the mechanism folds and deploys as drawn, that the clearances hold, and that the deployment repeats. It is not an alternative route to the simulation results, and it would not measure at the accuracy that matters. The heritage repeatability campaign on comparable hardware reached 19 to \qty{25}{\micro\meter}, on one axis, in ambient conditions, which is more than an order of magnitude above the PLASMO target.
+\textbf{A breadboard model.} Building hardware is proposed as a midterm decision, gated on the trade-off outcome, rather than committed to now. Its purpose would be to validate the CAD design physically and to run physical tests: that the mechanism folds and deploys as drawn, that the clearances hold, and that the deployment repeats. It is not an alternative route to the simulation results, and it would not measure at the accuracy that matters. The heritage repeatability campaign on comparable hardware reached 19 to \SI{25}{\micro\meter}, on one axis, in ambient conditions, which is more than an order of magnitude above the PLASMO target.
 
 \textbf{The latch-count and overdefinition question.} Whether an overdefined structure with many latches warps under thermal stress, and whether latching only the middle joints while leaving the others free prevents that warping at the cost of vibration susceptibility, is an open question. It is assumed in earlier work and has not been investigated. It is a second research thread rather than part of the main line, so the proposal is to check the literature for it during phase 1 and to decide at the midterm whether it enters the thesis as a scoped finite-element study, run in parallel and off the critical path.
 
