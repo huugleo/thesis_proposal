@@ -10,22 +10,35 @@ The methodology also follows the sequence that recurs across the predecessor the
 \section{Phase 1, to the midterm: from the carried architectures to one design}
 \label{sec:phase1}
 
-\textbf{Activity 1.1, build the parametric models.} Each architecture carried forward in \Cref{sec:families-assessed} is written as a parametric model in Python, with aperture and M1 to M2 separation as inputs rather than fixed dimensions.
+\textbf{Activity 1.1, define the trade-off criteria.} The criteria and their weights are fixed before any candidate is modelled or scored, and are taken from the architectural properties of \Cref{sec:properties}. Defining them first, rather than after the models exist, is what determines which quantities the models actually have to produce, and it removes the risk of a criterion being chosen to suit a result already in hand.
 
-\textbf{Activity 1.2, sweep the solution space.} The models are run across the range of M1 to M2 separation and the aperture range, giving one curve per architecture on one common set of assumptions. The switch point is the separation at which the ranking between architectures inverts. The sweep is run against both a relative measure, separation divided by mirror diameter, and an absolute separation, as sub-question 2 requires. The sweep returns stowed and deployed envelope, member lengths, first-order mass estimate, and whether the geometry closes at all.
+\textbf{Activity 1.2, define the model inputs and outputs.} Before anything is built, the parameter set is written down in full: which quantities are inputs, which are swept, and which are held fixed so that the architectures can be compared fairly. Two of these need a decision rather than a value.
 
-\textbf{Activity 1.3, the concept trade-off.} Criteria are defined and weighted before any candidate is scored, and are taken from the architectural properties of \Cref{sec:properties}. Candidates that fail a first-order feasibility check, on geometric availability at the chosen separation, on stowed volume, or on the thermal path, are closed out with that reason recorded. The rest are scored on the sweep results, using the Analytic Hierarchy Process with a graphical trade-off as a cross-check, following the predecessor theses.
+\begin{itemize}
+    \item \textbf{Stiffness} is the binding one. It has to be held comparable across architectures, because it drives the dimensioning of the members and through them the mass and the stowed volume, yet a wireframe of lines and points has no cross-section, so nothing in the geometry fixes a wall thickness. A single assumed thickness for every family is not a fair basis: trusses and masts are not monolithic members and are typically larger but lighter; the driven linkage has members of different lengths and is only comparable once fully deployed; telescoping booms have progressively smaller segments, so their stiffness is not simple to approach. For that last case the telescopic-boom work of Wilting gives worked formulas that can be adopted rather than re-derived.
+    \item \textbf{The packing ratio boundary.} The figure is the volumetric ratio of the M2 mechanism stowed to the same mechanism deployed, bounded where it mounts to the rest of the spacecraft and running to its furthest extent: not the individual boom, not the satellite, and not other deployables. Each architecture reports two envelopes, the minimum envelope around the wireframe and the cylinder or box it fits into, giving a range rather than one number, with a qualitative note on how practical the resulting shape is. The volume the baffle is forced to occupy is recorded as a separate figure alongside the ratio, never inside it, because a concept that flares at its base when stowed or that swings outside the bus pushes the baffle outward and so enlarges the stowed volume at system level.
+\end{itemize}
 
-\textbf{Activity 1.4, the hinge and locking trade.} \Cref{sec:properties} establishes that what defines the deployed position is set at the hinge rather than by the family, so the hinge is traded separately once the architecture is chosen. Its criteria are the three cases of \Cref{sec:properties}: a hard stop or latch, a driven position with feedback, or a shape found from stored elastic energy. This trade is decided from the literature.
+The output of this activity is a written input-output specification. It exists so that the modelling that follows is aimed at something, rather than the parameters being settled retrospectively by whatever the first model happened to produce.
 
-\textbf{Activity 1.5, first model of the selected concept.} The selected design is drawn as a CAD model. Clearances, the swept arc, hinge and interface layout, a packing ratio is retrieved from the CAD model. This is the working model expected at the midterm.
+\textbf{Activity 1.3, build the parametric models.} Each architecture carried forward in \Cref{sec:families-assessed} is written as a parametric model in Python, with aperture and M1 to M2 separation as inputs rather than fixed dimensions, to the specification of \Cref{sec:phase1}.
+
+\textbf{Activity 1.4, sweep the solution space.} The models are run across the range of M1 to M2 separation and the aperture range, giving one curve per architecture on one common set of assumptions. The switch point is the separation at which the ranking between architectures inverts. The sweep is run against both a relative measure, separation divided by mirror diameter, and an absolute separation, as sub-question 2 requires. The sweep returns the two stowed envelopes and the deployed envelope, the baffle displacement recorded separately, member lengths, first-order mass estimate, and whether the geometry closes at all.
+
+\textbf{Activity 1.5, the concept trade-off.} Candidates that fail a first-order feasibility check, on geometric availability at the chosen separation, on stowed volume, or on the thermal path, are closed out with that reason recorded. The rest are scored against the criteria of activity 1.1 on the sweep results, using the Analytic Hierarchy Process with a graphical trade-off as a cross-check, following the predecessor theses.
+
+\textbf{Activity 1.6, the hinge and locking trade.} \Cref{sec:properties} establishes that what defines the deployed position is set at the hinge rather than by the family, so the hinge is traded separately once the architecture is chosen. Its criteria are the three cases of \Cref{sec:properties}: a hard stop or latch, a driven position with feedback, or a shape found from stored elastic energy. This trade is decided from the literature.
+
+\textbf{Activity 1.7, first model of the selected concept.} The selected design is drawn as a CAD model: clearances, the swept arc, hinge and interface layout, and a packing ratio retrieved from the model rather than from the wireframe. Material and layup choices are made here, including resistance to atomic-oxygen exposure at VLEO, which is a material-selection question rather than a result of the thermoelastic analysis. This is the working model expected at the midterm.
+
+\textbf{Activity 1.8, gather and define the phase-2 inputs.} A preparatory activity, placed deliberately before the midterm. The thermal environment for the \SI{300}{\kilo\meter} baseline and the assumed microvibration input spectrum are established here, each with the short piece of literature study it needs and an explicit decision on how it will be modelled. Gathering and defining inputs routinely costs more time than the analysis they feed, which is short work once the approach is settled, so doing it before the midterm means that even if it is unfinished the size of what remains is known, and any input that is simply missing has surfaced while there is still time to work around it.
 
 \section{Phase 2, to the green light: analysing the selected design}
 \label{sec:phase2}
 
 \textbf{Activity 2.1, ESATAN thermal cases.} Orbital thermal cases for the \SI{300}{\kilo\meter} VLEO baseline, including eclipse cycling, with the cooled detector carried as a fixed boundary condition. The output is the temperature field and the gradients across the deployed structure over an orbit.
 
-\textbf{Activity 2.2, thermoelastic and modal finite-element analysis.} The temperature fields drive a thermoelastic analysis of M2 pose drift, and a modal analysis gives the deployed first eigenfrequency for launch survival and for the reaction-wheel microvibration response. Material and layup choices, including atomic-oxygen exposure at VLEO are considered here.
+\textbf{Activity 2.2, thermoelastic and modal finite-element analysis.} The temperature fields drive a thermoelastic analysis of M2 pose drift, and a modal analysis gives the deployed first eigenfrequency for launch survival and for the reaction-wheel microvibration response. Material and layup choices are set in activity 1.7 and are taken as given here.
 
 \textbf{Activity 2.3, the error budget.} A root-sum-square error budget propagates the contributors to M2 pose error: bare deployment repeatability, hinge or latch hysteresis, thermoelastic drift per orbit, manufacturing and alignment tolerances, and microvibration. This budget splits the sub-micron target into a number for each contributor, so every part of the design can be checked.
 
@@ -34,9 +47,21 @@ The methodology also follows the sequence that recurs across the predecessor the
 \section{Two decisions deferred to the midterm}
 \label{sec:deferred}
 
+% TODO (Jasper, 27 Aug 2026) DECISION NEEDED, and it applies to this whole section.
+% His position: a question carried as "decision deferred to the midterm" is in practice a question dropped at the midterm,
+% because by then the remaining time decides it, and anything not explicitly planned for is unlikely to happen.
+% His estimate is that at the midterm the latch/overdefinition study will be judged no longer feasible.
+% So each of the two items below has to be planned explicitly now, or let go on purpose.
+% He was clear that this is Hugo's thesis and he is not saying yes or no; he asked for about a week of mapping before deciding.
+% Counter-argument he accepted for the latch study: the thermoelastic analysis (2.2) and the microvibration response are already
+% planned activities, so pushing an over-determined model through the same process gives a second answer to compare at little extra cost.
+% He also noted the question may already be relevant at activity 1.6 (where it can be left open) and at 1.7, so it could be decided
+% straight after the trade-off in 1.5 rather than at the midterm.
+% If the latch study is dropped, a lot of work falls away and the breadboard may become realistic again.
+
 \textbf{A breadboard model.} Building hardware is proposed as a midterm decision, gated on the trade-off outcome, rather than committed to now. Its purpose would be to validate the CAD design physically and to run physical tests: that the mechanism folds and deploys as drawn, that the clearances hold, and that the deployment repeats. It is not an alternative route to the simulation results, and it would not measure at the accuracy that matters. The heritage repeatability campaign on comparable hardware reached 19 to \SI{25}{\micro\meter}, on one axis, in ambient conditions, which is more than an order of magnitude above the PLASMO target.
 
-\textbf{The latch-count and overdefinition question.} Whether an overdefined structure with many latches warps under thermal stress, and whether latching only the middle joints while leaving the others free prevents that warping at the cost of vibration susceptibility, is an open question. It is assumed in earlier work and has not been investigated. It is a second research thread rather than part of the main line, so the proposal is to check the literature for it during phase 1 and to decide at the midterm whether it enters the thesis as a scoped finite-element study, run in parallel and off the critical path.
+\textbf{The latch-count and overdefinition question.} Whether an overdefined structure with many latches warps under thermal stress, and whether latching only the middle joints while leaving the others free prevents that warping at the cost of vibration susceptibility, is an open question. It is assumed in earlier work and has not been investigated. It is a second research thread rather than part of the main line. The literature on it is checked during phase 1, and because the thermoelastic and modal analysis of activity 2.2 is already planned, running an over-determined variant of the same model through that activity would give a comparison at limited extra cost.
 
 \section{Mapping of questions to activities}
 \label{sec:mapping}
@@ -50,9 +75,9 @@ The methodology also follows the sequence that recurs across the predecessor the
         \toprule
         Question & Primary activity & Output that answers it \\
         \midrule
-        Sub-question 1: concepts and mechanisms & 1.1, 1.2, 1.3, 1.4 & A trade-off across seven criteria on a common basis, with one architecture selected and every discard reasoned, and a separate hinge and locking trade on the criteria of \Cref{sec:properties} \\
-        Sub-question 2: validity across the optical space & 1.1, 1.2 & The switch point in both relative and absolute form, and a statement on whether one concept spans both regimes \\
-        Sub-question 3: the passive-active split & 2.1, 2.2, 2.3, 2.4 & An RSS error budget and the residual compared against the 3-DOF stroke and resolution \\
+        Sub-question 1: concepts and mechanisms & 1.1 to 1.6 & A trade-off across seven criteria on a common basis, with one architecture selected and every discard reasoned, and a separate hinge and locking trade on the criteria of \Cref{sec:properties} \\
+        Sub-question 2: validity across the optical space & 1.2, 1.3, 1.4 & The switch point in both relative and absolute form, and a statement on whether one concept spans both regimes \\
+        Sub-question 3: the passive-active split & 1.8, 2.1 to 2.4 & An RSS error budget and the residual compared against the 3-DOF stroke and resolution \\
         Main question & All of the above & A design with its packing ratio, its accuracy and stability budget, and its stiffness, stated against the open optical configuration \\
         \bottomrule
     \end{tabularx}
@@ -84,7 +109,7 @@ The methodology also follows the sequence that recurs across the predecessor the
         Optical configuration still open (aperture, on-axis or off-axis, M1 to M2 distance) & Could invalidate a fixed design & Parametric models by construction; the switch-point sweep converts the uncertainty into a result \\
         No deployment-accuracy requirement defined & No target to design against & Derive the budget within the thesis and feed it back to the design report; carry it as an explicit assumption until confirmed \\
         The truss and mast architecture has no published thermal evidence in its family & An architecture could be selected on an untested assumption & First-order thermal sizing before selection; a breadboard as a midterm-gated second source of evidence if it is selected \\
-        Scope growth from the latch-warping thread & Two research threads in one thesis & Deferred to a midterm decision and held off the critical path \\
+        Scope growth from the latch-warping thread & Two research threads in one thesis & Bounded by reusing the activity 2.2 model rather than building a separate study; the decision to include it is taken in phase 1, not left to the midterm \\
         \bottomrule
     \end{tabularx}
 \end{table}

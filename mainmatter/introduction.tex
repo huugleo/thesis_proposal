@@ -15,6 +15,13 @@ The objective of the thesis is to identify and trade off the options for deploym
 The thesis addresses the passive deployment structure that carries the secondary mirror (M2): the mechanism that holds M2 at its standoff from the primary mirror (M1) after deployment, and the accuracy and stability with which it does so. Two boundaries are treated as fixed for the duration of the work.
 
 \begin{itemize}
-    \item The deployable baffle is treated as a separate element. An integrated baffle and M2 mechanism is not pursued, because the baffle tolerates considerable inaccuracy while the mirror does not, and the two therefore lead to different design philosophies. It is retained only as a possible side observation.
+    \item The deployable baffle is treated as a separate element. An integrated baffle and M2 mechanism is not pursued. The reason is thermal rather than a mismatch of tolerances: the baffle intercepts direct sunlight and albedo, so it heats and fluctuates, and carrying the mirror on a structure subject to that heat load makes the tightest requirement in the system hard to meet, through unwanted thermo-mechanical dynamics and, in the short-wave infrared, through limited thermal self-imaging. Decoupling the two is what keeps the thermal variation seen by the mirror support small. It is retained only as a possible side observation.
     \item Active correction is in scope as a budget rather than as a design task. The working assumption is a fine stage with three degrees of freedom, piston plus tip and tilt, with actuators at the bases of the three M2 arms. The thesis sizes what that stage would have to absorb. It does not design the control loop or the metrology chain.
 \end{itemize}
+
+% TODO (Jasper, 27 Aug 2026) DECISION NEEDED. He is content with the narrow scope but asks for a step that verifies this assumption rather than asserting it. Three specifics:
+%   (a) A symmetric design has deviations in 5 DOF, not 6: rotation about the mirror axis is not relevant. Restate the assumption on that basis.
+%   (b) Actuators at the three arm bases give NO control of displacement in the X-Y plane. Say so explicitly, and state how large those displacements are expected to be and whether they fit within budget passively.
+%   (c) Check that actuators exist which meet the resulting stroke and accuracy requirements.
+% Requirements for all 5 DOF are needed as an output of the instrument design (Jerome Loicq); failing that, formulate a defensible assumption.
+% Decide whether to add a verification step here or to carry it as an activity in Chapter 5.
