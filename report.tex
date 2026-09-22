@@ -21,6 +21,25 @@
 \DeclareMathSymbol{*}{\mathbin}{symbols}{"01}   % Use * easily, everywhere.
 \setlist{itemsep=-2pt}                          % Reducing white space in lists slightly.
 \addbibresource{report.bib}
+% New list -------------------------------------
+% \newlist{researchquestions}{enumerate}{2}
+% \setlist[researchquestions,1]{label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=*, itemsep=0.6em}
+% \setlist[researchquestions,2]{label=\textbf{RQ\arabic{researchquestionsi}.\arabic*.}, ref=RQ\arabic{researchquestionsi}.\arabic*, leftmargin=*, topsep=0.3em}
+
+% \newcounter{mrq}
+% \renewcommand{\themrq}{MRQ}
+% \newcommand{\mainquestion}[1]{\refstepcounter{mrq}\begin{quote}\textbf{MRQ.}\ \textbf{#1}\end{quote}}
+
+\newlength{\rqlabelwidth}
+\settowidth{\rqlabelwidth}{\textbf{RQ2.1.}}
+
+\newlist{mainquestion}{enumerate}{1}
+\setlist[mainquestion]{label=\textbf{MRQ.}, ref=MRQ, align=left, labelwidth=\rqlabelwidth, leftmargin=!, topsep=0.6em}
+
+\newlist{researchquestions}{enumerate}{2}
+\setlist[researchquestions,1]{label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, itemsep=0.6em}
+\setlist[researchquestions,2]{label=\textbf{RQ\arabic{researchquestionsi}.\arabic*.}, ref=RQ\arabic{researchquestionsi}.\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, topsep=0.3em}
+% ----------------------------------------------
 % ==============================================
 
 %% ----------------------------------------------------------------------
@@ -63,12 +82,8 @@
 \input{mainmatter/introduction}
 \input{mainmatter/chapter-2}
 \input{mainmatter/chapter-3}
-% chapter-4 (Research questions) was merged into chapter-3 as \section{Research questions} on 1 Sep 2026,
-% per Jasper's comment that it follows logically from the preceding analyses. The old file is no longer built.
-% TODO: delete mainmatter/chapter-4.tex from the project (Overleaf file tree, or git rm).
-%\input{mainmatter/chapter-4}
+\input{mainmatter/chapter-4}
 \input{mainmatter/chapter-5}
-\input{mainmatter/chapter-6}
 
 %\input{mainmatter/conclusion} % A proposal has no conclusion chapter.
 
