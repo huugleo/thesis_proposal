@@ -11,7 +11,7 @@
 \usepackage{amsmath}                            % Enhances the built in math environment.
 \usepackage{bm}                                 % Allows for bold math.
 \usepackage[sorting=none]{biblatex}             % Add bibliography with a sequential sorting order.
-\usepackage{physics}                            % Enchances typesetting of mathematical, physics and engineering expressions.
+% \usepackage{physics}                            % Enchances typesetting of mathematical, physics and engineering expressions.
 \usepackage{enumitem}                           % Enhances list usage.
 \usepackage{siunitx}                            % SI units.
 % ==============================================
@@ -21,6 +21,7 @@
 \DeclareMathSymbol{*}{\mathbin}{symbols}{"01}   % Use * easily, everywhere.
 \setlist{itemsep=-2pt}                          % Reducing white space in lists slightly.
 \addbibresource{report.bib}
+
 % Research questsions --------------------------
 \newlength{\rqlabelwidth}
 \settowidth{\rqlabelwidth}{\textbf{RQ2.1.}}
@@ -31,6 +32,13 @@
 \newlist{researchquestions}{enumerate}{2}
 \setlist[researchquestions,1]{label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, itemsep=0.6em}
 \setlist[researchquestions,2]{label=\textbf{RQ\arabic{researchquestionsi}.\arabic*.}, ref=RQ\arabic{researchquestionsi}.\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, topsep=0.3em}
+
+\crefformat{mainquestioni}{#2#1#3}
+\Crefformat{mainquestioni}{#2#1#3}
+\crefformat{researchquestionsi}{#2#1#3}
+\Crefformat{researchquestionsi}{#2#1#3}
+\crefformat{researchquestionsii}{#2#1#3}
+\Crefformat{researchquestionsii}{#2#1#3}
 % ----------------------------------------------
 
 % Research activities --------------------------
