@@ -21,15 +21,7 @@
 \DeclareMathSymbol{*}{\mathbin}{symbols}{"01}   % Use * easily, everywhere.
 \setlist{itemsep=-2pt}                          % Reducing white space in lists slightly.
 \addbibresource{report.bib}
-% New list -------------------------------------
-% \newlist{researchquestions}{enumerate}{2}
-% \setlist[researchquestions,1]{label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=*, itemsep=0.6em}
-% \setlist[researchquestions,2]{label=\textbf{RQ\arabic{researchquestionsi}.\arabic*.}, ref=RQ\arabic{researchquestionsi}.\arabic*, leftmargin=*, topsep=0.3em}
-
-% \newcounter{mrq}
-% \renewcommand{\themrq}{MRQ}
-% \newcommand{\mainquestion}[1]{\refstepcounter{mrq}\begin{quote}\textbf{MRQ.}\ \textbf{#1}\end{quote}}
-
+% Research questsions --------------------------
 \newlength{\rqlabelwidth}
 \settowidth{\rqlabelwidth}{\textbf{RQ2.1.}}
 
@@ -39,6 +31,18 @@
 \newlist{researchquestions}{enumerate}{2}
 \setlist[researchquestions,1]{label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, itemsep=0.6em}
 \setlist[researchquestions,2]{label=\textbf{RQ\arabic{researchquestionsi}.\arabic*.}, ref=RQ\arabic{researchquestionsi}.\arabic*, align=left, labelwidth=\rqlabelwidth, leftmargin=!, topsep=0.3em}
+% ----------------------------------------------
+
+% Research activities --------------------------
+\newcounter{phase}
+\newcounter{activity}
+\renewcommand{\theactivity}{\arabic{phase}.\arabic{activity}}
+
+\crefname{activity}{activity}{activities}
+\Crefname{activity}{Activity}{Activities}
+
+\newcommand{\phasestart}[1]{\setcounter{phase}{#1}\setcounter{activity}{0}}
+\newcommand{\activity}[2]{\refstepcounter{activity}\label{act:#1}\textbf{Activity \theactivity, #2.}}
 % ----------------------------------------------
 % ==============================================
 
